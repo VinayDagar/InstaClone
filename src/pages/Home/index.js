@@ -1,12 +1,16 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import StoryCarosule from '../../components/StoryCarosule';
+import StoryCarosule from './components/StoryCarosule';
+import PostComponent from './components/PostComponent';
 
 const Home = () => {
   return (
     <View>
       <StoryCarosule />
-      <Text style={styles.text}>This is the Home Screen</Text>
+      <View style={styles.postContainer}>
+        <PostComponent />
+      </View>
+      {/* <Text style={styles.text}>This is the Home Screen</Text> */}
     </View>
   );
 };
@@ -22,5 +26,8 @@ const styles = StyleSheet.create({
   text: {
     color: 'black',
     marginTop: 14,
+  },
+  postContainer: {
+    top: 10,
   },
 });
