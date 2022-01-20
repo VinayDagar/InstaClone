@@ -1,11 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
+import StoryCarosule from '../../components/StoryCarosule';
 
 const Home = () => {
   return (
-    // <View>
-    <Text style={styles.text}>This is the Home Screen</Text>
-    // </View>
+    <View>
+      <StoryCarosule />
+      <Text style={styles.text}>This is the Home Screen</Text>
+    </View>
   );
 };
 
@@ -19,5 +21,6 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'black',
+    marginTop: 14,
   },
 });

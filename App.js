@@ -14,6 +14,8 @@ import FontAwesomeIcons from 'react-native-vector-icons/FontAwesome5';
 import HomeScreen from './src/pages/Home';
 import FeedScreen from './src/pages/Feeds';
 
+import MainHeader from './src/components/MainHeader'
+
 const Tab = createBottomTabNavigator();
 
 const MyTabBar = ({ state, descriptors, navigation }) => {
@@ -34,8 +36,6 @@ const MyTabBar = ({ state, descriptors, navigation }) => {
             : options.title !== undefined
             ? options.title
             : route.name;
-
-        const icon = options.tabBarIcon || undefined;
 
         const isFocused = state.index === index;
 
@@ -81,15 +81,19 @@ const MyTabBar = ({ state, descriptors, navigation }) => {
 const App = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          header: () => <></>,
+        }}>
         <Tab.Screen
           name="Home"
           component={HomeScreen}
           options={{
             tabBarLabel: '',
             tabBarIcon: () => (
-              <FoundationIcons name="home" size={24} color="black" />
+              <FoundationIcons name="home" size={28} color="black" />
             ),
+            header: () => <MainHeader />,
           }}
         />
         <Tab.Screen
@@ -98,7 +102,7 @@ const App = () => {
           options={{
             tabBarLabel: '',
             tabBarIcon: () => (
-              <IoniconsIcons name="search" size={24} color="black" />
+              <IoniconsIcons name="search" size={28} color="black" />
             ),
           }}
         />
@@ -108,7 +112,7 @@ const App = () => {
           options={{
             tabBarLabel: '',
             tabBarIcon: () => (
-              <MaterialCommunityIcons name="play-box" size={24} color="black" />
+              <MaterialCommunityIcons name="play-box" size={28} color="black" />
             ),
           }}
         />
@@ -118,7 +122,7 @@ const App = () => {
           options={{
             tabBarLabel: '',
             tabBarIcon: () => (
-              <AntDesignIcons name="hearto" size={24} color="black" />
+              <AntDesignIcons name="hearto" size={28} color="black" />
             ),
           }}
         />
@@ -128,14 +132,14 @@ const App = () => {
           options={{
             tabBarLabel: '',
             tabBarIcon: () => (
-              <FontAwesomeIcons name="user-circle" size={24} color="black" />
+              <FontAwesomeIcons name="user-circle" size={28} color="black" />
             ),
           }}
         />
       </Tab.Navigator>
     </NavigationContainer>
   );
-}
+};
 
 export default App;
 
