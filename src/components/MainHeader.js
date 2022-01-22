@@ -1,17 +1,23 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, Text } from 'react-native';
 import Logo from '../assets/Instalogo.png';
 import FontAwesomeIcons from 'react-native-vector-icons/FontAwesome';
 import AntdesignIcons from 'react-native-vector-icons/AntDesign';
 
-const MainHeader = () => {
+const MainHeader = ({ isActivity }) => {
   return (
     <View style={styles.continer}>
-      <Image source={Logo} style={styles.logo} />
-      <View style={styles.iconContainer}>
-        <FontAwesomeIcons name="plus-square-o" size={30} color="black" />
-        <AntdesignIcons name="message1" size={25} color="black" />
-      </View>
+      {isActivity ? (
+        <Text style={styles.headerText}> Activity</Text>
+      ) : (
+        <>
+          <Image source={Logo} style={styles.logo} />
+          <View style={styles.iconContainer}>
+            <FontAwesomeIcons name="plus-square-o" size={30} color="black" />
+            <AntdesignIcons name="message1" size={25} color="black" />
+          </View>
+        </>
+      )}
     </View>
   );
 };
@@ -38,5 +44,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-evenly',
     flexDirection: 'row',
+  },
+  headerText: {
+    fontSize: 28,
+    fontWeight: '900',
+    color: '#000',
   },
 });

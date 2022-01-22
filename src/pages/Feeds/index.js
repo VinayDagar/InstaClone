@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Image, View, FlatList } from 'react-native';
+import { StyleSheet, Image, View, FlatList, Dimensions } from 'react-native';
 
 const Feed = () => {
   const [items, setItems] = useState([]);
@@ -36,6 +36,8 @@ const Feed = () => {
 
 export default Feed;
 
+const deviceWidth = Dimensions.get('window').width;
+
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
@@ -49,6 +51,6 @@ const styles = StyleSheet.create({
   },
   imageThumbnail: {
     height: 120,
-    width: 120,
+    width: deviceWidth / 3,
   },
 });

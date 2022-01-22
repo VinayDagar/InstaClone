@@ -1,7 +1,7 @@
 // In App.js in a new project
 
 import * as React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FoundationIcons from 'react-native-vector-icons/Foundation/';
@@ -12,6 +12,7 @@ import FontAwesomeIcons from 'react-native-vector-icons/FontAwesome5';
 
 import HomeScreen from './src/pages/Home';
 import FeedScreen from './src/pages/Feeds';
+import ActivityScreen from './src/pages/Activity';
 
 import MainHeader from './src/components/MainHeader';
 import FeedHeader from './src/components/FeedHeader';
@@ -59,12 +60,13 @@ const App = () => {
         />
         <Tab.Screen
           name="Activity"
-          component={FeedScreen}
+          component={ActivityScreen}
           options={{
             tabBarLabel: '',
             tabBarIcon: () => (
               <AntDesignIcons name="hearto" size={28} color="black" />
             ),
+            header: () => <MainHeader isActivity />,
           }}
         />
         <Tab.Screen
