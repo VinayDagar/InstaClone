@@ -13,9 +13,11 @@ import FontAwesomeIcons from 'react-native-vector-icons/FontAwesome5';
 import HomeScreen from './src/pages/Home';
 import FeedScreen from './src/pages/Feeds';
 import ActivityScreen from './src/pages/Activity';
+import ProfileScreen from './src/pages/Profile';
 
 import MainHeader from './src/components/MainHeader';
 import FeedHeader from './src/components/FeedHeader';
+import ProfileHeader from './src/components/ProfileHeader';
 
 const Tab = createBottomTabNavigator();
 
@@ -71,12 +73,13 @@ const App = () => {
         />
         <Tab.Screen
           name="Profile"
-          component={FeedScreen}
+          component={ProfileScreen}
           options={{
             tabBarLabel: '',
             tabBarIcon: () => (
               <FontAwesomeIcons name="user-circle" size={28} color="black" />
             ),
+            header: () => <ProfileHeader />,
           }}
         />
       </Tab.Navigator>
